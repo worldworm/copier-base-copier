@@ -13,7 +13,7 @@
   {% if project_description.startswith('Copier ') -%}
     {% set project_description = '<a href="https://github.com/copier-org/copier">Copier</a> ' ~ project_description[7:] %}
   {% endif %}
-  {% if project_description.endswith(project_name ~ " projects.") %}
+  {% if project_description.endswith(project_name ~ " projects.") and url != "" %}
     {{ project_description.replace(project_name ~ " projects.", '<a href="' ~ url ~ '">' ~ project_name ~ "</a> projects.") }}
   {% else %}
     {{ project_description }}
