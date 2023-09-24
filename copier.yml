@@ -9,6 +9,7 @@ project_name:
 project_description:
   type: str
   help: Project description
+  default: "Copier{{ ' meta' if project_name.endswith('-meta') else '' }} template for {% from 'format.jinja' import format_project_name %}{{ format_project_name(project_name).strip() }} projects."
 
 repository_provider:
   type: str
@@ -50,7 +51,7 @@ copyright_license:
 project_emoji:
   type: str
   help: Project emoji
-  default: "🛠️"
+  default: "📋"
 
 copyright_year_start:
   type: int
@@ -66,3 +67,34 @@ warning_early_dev:
   type: bool
   help: Add "early dev" warning?
   default: true
+
+need_trust:
+  type: bool
+  help: Need "--trust" for copier?
+  default: true
+
+answersfile_suffix:
+  type: str
+  help: Answersfile suffix
+  default: "{% if project_name.startswith('copier-') %}{{ project_name[7:] }}{% else %}{{ project_name }}{% endif %}"
+
+is_meta:
+  type: bool
+  help: Is meta template?
+  default: "{{ project_name.endswith('-meta') }}"
+
+child_template_name:
+  type: str
+  help: Child-template name
+  when: "{{ is_meta }}"
+  default: "{{ project_name[:-5] }}"
+
+child_template_url:
+  type: str
+  help: Child-template URL
+  when: "{{ is_meta }}"
+  default: "https://{{ repository_host if repository_provider == 'GitLab' else 'github.com' }}/{{ repository_username }}/{{ child_template_name }}"
+
+ref_tech_url:
+  type: str
+  help: Reference URL for "{% from 'format.jinja' import format_project_name %}{{ format_project_name(project_name).strip() }}" tech project

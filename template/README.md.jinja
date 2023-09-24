@@ -1,6 +1,6 @@
 <h1 align="center">{{ project_emoji }} {{ project_name }}</h1>
 <p align="center">
-  <i>{{ project_description }}</i>
+  <i>{% from 'format.jinja' import format_project_description %}{{ format_project_description(project_description,ref_tech_url, project_name).strip() }}</i>
 </p>
 
 
@@ -10,6 +10,38 @@
 > **Warning**
 > This project is in early development and may not work as expected.
 {% endif %}
+
+
+## Features
+
+
+## Requirements
+First install copier:<br>
+([from the official installation documentation](https://copier.readthedocs.io/en/stable/#installation))
+```bash
+pip install copier
+```
+
+
+## Usage
+{% if is_meta -%}
+> **Note**
+> This is a meta template that cannot be used directly to create a project.
+> The template resulting from this meta-template can be used for this purpose: [{{ child_template_name }}]({{ child_template_url }})
+{% endif %}
+Make sure the requirements are met, then:
+```bash
+copier copy{{ " --trust" if need_trust }} "{{ repository_url }}.git" /new/project/path
+```
+
+### Update
+To update a template after creating a project, run:
+```bash
+copier update{{ " --trust" if need_trust }} -a .project/.copier-answers.{{ answersfile_suffix }}.yml /some/project/path
+```
+
+## Explore more Copier templates
+In addition to this template, there are a number of other Copier templates available. For an overview of all available templates, visit the [Templates Showcase repository](https://{{ repository_host if repository_provider == 'GitLab' else 'github.com' }}/{{ repository_username }}/copier-showcase).
 
 ---
 <p align="center">

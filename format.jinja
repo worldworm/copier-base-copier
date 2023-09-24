@@ -1,0 +1,21 @@
+{% macro format_project_name(project_name) %}
+    {% if project_name.startswith("copier-") %}
+        {% set project_name = project_name[7:] %}
+    {% endif %}
+    {% if project_name.endswith("-meta") %}
+        {% set project_name = project_name[:-5] %}
+    {% endif %}
+    {{ project_name }}
+{% endmacro %}
+
+{% macro format_project_description(project_description, url, project_name) %}
+  {% set project_name = format_project_name(project_name).strip() %}
+  {% if project_description.startswith('Copier ') -%}
+    {% set project_description = '<a href="https://github.com/copier-org/copier">Copier</a> ' ~ project_description[7:] %}
+  {% endif %}
+  {% if project_description.endswith(project_name ~ " projects.") %}
+    {{ project_description.replace(project_name ~ " projects.", '<a href="' ~ url ~ '">' ~ project_name ~ "</a> projects.") }}
+  {% else %}
+    {{ project_description }}
+  {% endif %}
+{% endmacro %}
