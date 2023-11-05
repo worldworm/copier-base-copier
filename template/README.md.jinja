@@ -34,6 +34,11 @@ pip install copier
 > This is an extension template that cannot be used directly to create a project.
 > Use this template after applying the appropriate meta template: [{{ ext_template_name }}]({{ ext_template_url }})
 {% endif %}
+{% if is_bp -%}
+> **Note**
+> This is a blueprint template that cannot be used directly to create a project.
+> Apply this template to all projects based on: [{{ bp_template_name }}]({{ bp_template_url }})
+{% endif %}
 Make sure the requirements are met, then:
 ```bash
 copier copy{{ " --trust" if need_trust }} "{{ repository_url }}.git" /new/project/path

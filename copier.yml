@@ -112,6 +112,23 @@ ext_template_url:
   when: "{{ is_ext }}"
   default: "https://{{ repository_host if repository_provider == 'GitLab' else 'github.com' }}/{{ repository_username }}/{{ ext_template_name }}"
 
+is_bp:
+  type: bool
+  help: Is blueprint template?
+  default: "{{ project_name.endswith('-bp') }}"
+
+bp_template_name:
+  type: str
+  help: Extending template name
+  when: "{{ is_bp }}"
+  default: "{{ project_name[:-3] }}"
+
+bp_template_url:
+  type: str
+  help: Extending template URL
+  when: "{{ is_bp }}"
+  default: "https://{{ repository_host if repository_provider == 'GitLab' else 'github.com' }}/{{ repository_username }}/{{ bp_template_name }}"
+
 ref_tech_url:
   type: str
   help: Reference URL for "{% from 'format.jinja' import format_project_name %}{{ format_project_name(project_name).strip() }}" tech project

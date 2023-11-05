@@ -8,6 +8,9 @@
     {% if project_name.endswith("-ext") %}
         {% set project_name = project_name[:-4] %}
     {% endif %}
+    {% if project_name.endswith("-bp") %}
+        {% set project_name = project_name[:-3] %}
+    {% endif %}
     {{ project_name }}
 {% endmacro %}
 
