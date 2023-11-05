@@ -9,7 +9,7 @@ project_name:
 project_description:
   type: str
   help: Project description
-  default: "Copier{{ ' meta' if project_name.endswith('-meta') else '' }} template for {% from 'format.jinja' import format_project_name %}{{ format_project_name(project_name).strip() }} projects."
+  default: "Copier{{ ' meta' if project_name.endswith('-meta') else '' }}{{ ' extension' if project_name.endswith('-ext') else '' }}{{ ' blueprint' if project_name.endswith('-bp') else '' }} template for {% from 'format.jinja' import format_project_name %}{{ format_project_name(project_name).strip() }} projects."
 
 repository_provider:
   type: str
