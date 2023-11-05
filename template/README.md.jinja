@@ -27,7 +27,12 @@ pip install copier
 {% if is_meta -%}
 > **Note**
 > This is a meta template that cannot be used directly to create a project.
-> The template resulting from this meta-template can be used for this purpose: [{{ child_template_name }}]({{ child_template_url }})
+> The template resulting from this meta template can be used for this purpose: [{{ child_template_name }}]({{ child_template_url }})
+{% endif %}
+{% if is_ext -%}
+> **Note**
+> This is an extension template that cannot be used directly to create a project.
+> Use this template after applying the appropriate meta template: [{{ ext_template_name }}]({{ ext_template_url }})
 {% endif %}
 Make sure the requirements are met, then:
 ```bash

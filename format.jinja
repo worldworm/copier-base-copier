@@ -5,6 +5,9 @@
     {% if project_name.endswith("-meta") %}
         {% set project_name = project_name[:-5] %}
     {% endif %}
+    {% if project_name.endswith("-ext") %}
+        {% set project_name = project_name[:-4] %}
+    {% endif %}
     {{ project_name }}
 {% endmacro %}
 
