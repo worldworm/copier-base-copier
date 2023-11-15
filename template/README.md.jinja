@@ -26,17 +26,17 @@ pip install copier
 ## Usage
 {% if is_meta -%}
 > **Note**
-> This is a meta template that cannot be used directly to create a project.
+> This is a [meta template](https://github.com/worldworm/copier-showcase/blob/main/types/meta.md) that cannot be used directly to create a project.
 > The template resulting from this meta template can be used for this purpose: [{{ child_template_name }}]({{ child_template_url }})
 {% endif %}
 {% if is_ext -%}
 > **Note**
-> This is an extension template that cannot be used directly to create a project.
+> This is an [extension template](https://github.com/worldworm/copier-showcase/blob/main/types/extension.md) that cannot be used directly to create a project.
 > Use this template after applying the appropriate meta template: [{{ ext_template_name }}]({{ ext_template_url }})
 {% endif %}
 {% if is_bp -%}
 > **Note**
-> This is a blueprint template that cannot be used directly to create a project.
+> This is a [blueprint template](https://github.com/worldworm/copier-showcase/blob/main/types/blueprint.md) that cannot be used directly to create a project.
 > Apply this template to all projects based on: [{{ bp_template_name }}]({{ bp_template_url }})
 {% endif %}
 Make sure the requirements are met, then:
