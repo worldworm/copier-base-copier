@@ -6,7 +6,7 @@ We welcome and appreciate contributions of all sizes. However, it's important to
 If you are unsure whether your proposed contribution is in line with the project's goals, please don't hesitate to contact us and discuss it with us before creating a pull request. We're here to help and collaborate.
 
 ## Meta template
-This project is based on one or more meta templates. Therefore, all basic adjustments should be made to that meta template. 
+This project is based on one or more [meta templates](https://github.com/worldworm/copier-showcase/blob/main/types/meta.md). Therefore, all basic adjustments should be made to that meta template. 
 Changes that affect the flavour of this template should be made here.
 
 The following meta templates have been used:
