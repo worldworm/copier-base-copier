@@ -41,14 +41,14 @@ pip install copier
 {% endif %}
 Make sure the requirements are met, then:
 ```bash
-copier copy{{ " --trust" if need_trust }} "{{ repository_url }}.git" /new/project/path
+copier copy{{ " --trust" if need_trust }} "{{ repository_url }}.git" .
 ```
 
 {% if not is_bp -%}
 ### Update
 To update a template after creating a project, run:
 ```bash
-copier update{{ " --trust" if need_trust }} -a .project/.copier-answers.{{ answersfile_suffix }}.yml /some/project/path
+copier update{{ " --trust" if need_trust }} -a .project/.copier-answers.{{ answersfile_suffix }}.yml .
 ```
 {% endif %}
 
