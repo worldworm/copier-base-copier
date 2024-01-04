@@ -133,3 +133,8 @@ answersfile_suffix:
 ref_tech_url:
   type: str
   help: Reference URL for "{% from 'format.jinja' import format_project_name %}{{ format_project_name(project_name).strip() }}" tech project
+
+copier_version:
+  type: str
+  help: Supported Copier version
+  default: 9
